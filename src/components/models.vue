@@ -13,8 +13,9 @@
       <!-- 1-ci blok -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div class="rounded-lg overflow-hidden shadow-lg">
-          <img src="/src/components/public/silver-tesla-model-3.jpg" 
+          <img src="/silver-tesla-model-3.jpg" 
                alt="Electric Vehicle in Nature"
+               loading="lazy"
                class="w-full h-full object-cover" />
         </div>
 
@@ -82,8 +83,9 @@
         </div>
 
         <div class="rounded-lg overflow-hidden shadow-lg">
-          <img src="/src/components/public/model-y1.jpg" 
+          <img src="/model-y1.jpg" 
                alt="Tesla Model X with Falcon Wing Doors Open"
+               loading="lazy"
                class="w-full h-full object-cover" />
         </div>
       </div>
@@ -91,8 +93,9 @@
       <!-- 3-nji blok -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-20">
         <div class="rounded-lg overflow-hidden shadow-lg">
-          <img src="/src/components/public/tesla1.png" 
+          <img src="/tesla1.png" 
                alt="Electric Vehicle in Nature"
+               loading="lazy"
                class="w-full h-full object-cover" />
         </div>
 

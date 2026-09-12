@@ -13,7 +13,7 @@ const testimonials = ref([
             "From start to finish, EVsleek made my EV journey effortless. Their team helped me choose the perfect car and installed a charger that looks as sleek as it performs. The design, the service, the speed—everything about EVsleek just feels premium. I love my new ride, and the support has been top-notch.",
         name: "Maya R.",
         location: "San Diego, CA",
-        image: "/src/components/public/1.jpg",
+        image: "/1.jpg",
         alt: "Maya R. with her Tesla",
     },
     {
@@ -22,7 +22,7 @@ const testimonials = ref([
             "Switching to an electric vehicle was a big decision, but EVsleek made it seamless. The home charger installation was quick and clean, and their advisors truly understood what I needed. I’ve never felt more confident in my car choice.",
         name: "James T.",
         location: "Austin, TX",
-        image: "/src/components/public/adam1.jpg",
+        image: "/adam1.jpg",
         alt: "James T. at his EV charging station",
     },
     {
@@ -31,7 +31,7 @@ const testimonials = ref([
             "The level of detail and care EVsleek puts into every step is unmatched. From the moment I walked in to the day my car arrived, everything was handled with professionalism and warmth. They didn’t just sell me a car—they gave me peace of mind.",
         name: "Lena K.",
         location: "Seattle, WA",
-        image: "/src/components/public/3.jpg",
+        image: "/3.jpg",
         alt: "Lena K. charging her EV at home",
     },
 ]);
@@ -54,14 +54,16 @@ const testimonials = ref([
                 <div class="relative w-full">
                     
                     <div class="relative rounded-lg overflow-hidden shadow-xl w-full">
-                        <img src="/src/components/public/tesla-supercharger.jpg" alt="Electric Car Charging"
+                        <img src="/tesla-supercharger.jpg" alt="Electric Car Charging"
+                            loading="lazy"
                             class="w-full h-auto object-cover" />
                     </div>
 
                     
                     <div class="absolute -bottom-20 left-6 hidden md:block w-52 h-60 overflow-hidden shadow-2xl"
                         style="clip-path: polygon(0% 0%, 80% 0%, 100% 20%, 100% 100%, 0% 100%)">
-                        <img src="/src/components/public/char.jpg" alt="Smart Charging Station"
+                        <img src="/char.jpg" alt="Smart Charging Station"
+                            loading="lazy"
                             class="w-full h-full object-cover rounded-lg border-4 border-gray-200" />
                     </div>
                 </div>
@@ -108,7 +110,7 @@ const testimonials = ref([
 
                             
                             <div class="w-full md:w-64 h-64 rounded-xl overflow-hidden shadow-lg border border-gray-200">
-                                <img :src="item.image" :alt="item.alt" class="w-full h-full object-cover" />
+                                <img :src="item.image" :alt="item.alt" loading="lazy" class="w-full h-full object-cover" />
                             </div>
                         </div>
                     </swiper-slide>

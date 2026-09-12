@@ -32,7 +32,7 @@ import 'swiper/css/navigation';
         <swiper-slide>
           <div
             class="relative rounded-2xl overflow-hidden h-full flex items-end bg-cover bg-center"
-            :style="{ backgroundImage: 'url(/src/components/public/D_PW.jpg)' }"
+            :style="{ backgroundImage: 'url(/D_PW.jpg)' }"
           >
             <div class="bg-black/50 text-white p-4 sm:p-6 w-full">
               <h2 class="text-xl sm:text-2xl font-bold">Powerwall</h2>
@@ -53,7 +53,7 @@ import 'swiper/css/navigation';
         <swiper-slide>
           <div
             class="relative rounded-2xl overflow-hidden h-full flex items-end bg-cover bg-center"
-            :style="{ backgroundImage: 'url(/src/components/public/solar-roof.jpg)' }"
+            :style="{ backgroundImage: 'url(/solar-roof.jpg)' }"
           >
             <div class="bg-black/50 text-white p-4 sm:p-6 w-full">
               <h2 class="text-xl sm:text-2xl font-bold">Solar Roof</h2>
@@ -74,7 +74,7 @@ import 'swiper/css/navigation';
         <swiper-slide>
           <div
             class="relative rounded-2xl overflow-hidden h-full flex items-end bg-cover bg-center"
-            :style="{ backgroundImage: 'url(/src/components/public/solar-panels.png)' }"
+            :style="{ backgroundImage: 'url(/solar-panels.png)' }"
           >
             <div class="bg-black/50 text-white p-4 sm:p-6 w-full">
               <h2 class="text-xl sm:text-2xl font-bold">Solar Panels</h2>
@@ -95,7 +95,7 @@ import 'swiper/css/navigation';
         <swiper-slide>
           <div
             class="relative rounded-2xl overflow-hidden h-full flex items-end bg-cover bg-center"
-            :style="{ backgroundImage: 'url(/src/components/public/tesla-hornsdale.png)' }"
+            :style="{ backgroundImage: 'url(/tesla-hornsdale.png)' }"
           >
             <div class="bg-black/50 text-white p-4 sm:p-6 w-full">
               <h2 class="text-xl sm:text-2xl font-bold">Powerwall</h2>
@@ -116,7 +116,7 @@ import 'swiper/css/navigation';
         <swiper-slide>
           <div
             class="relative rounded-2xl overflow-hidden h-full flex items-end bg-cover bg-center"
-            :style="{ backgroundImage: 'url(/src/components/public/cybertrack.jpg)' }"
+            :style="{ backgroundImage: 'url(/cybertrack.jpg)' }"
           >
             <div class="bg-black/50 text-white p-4 sm:p-6 w-full">
               <h2 class="text-xl sm:text-2xl font-bold">Cybertrack</h2>
@@ -138,8 +138,9 @@ import 'swiper/css/navigation';
     <!-- Ready to Drive Sleek? Banner -->
     <div class="relative overflow-hidden bg-white mt-20 px-4 sm:px-10 lg:px-20 mb-10">
       <img
-        src="/src/components/public/drive.jpg"
+        src="/drive.jpg"
         alt="Blue EV car in motion"
+        loading="lazy"
         class="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
       />
 
@@ -153,18 +154,23 @@ import 'swiper/css/navigation';
 </template>
 
 <style>
-/* Swiper Pagination */
 .swiper-pagination-bullet {
-  @apply bg-gray-500 opacity-80;
+  background-color: rgb(107 114 128);
+  opacity: 0.8;
 }
 
 .swiper-pagination-bullet-active {
-  @apply bg-blue-600 scale-110;
+  background-color: rgb(37 99 235);
+  transform: scale(1.1);
 }
 
-/* Swiper Navigation */
 .swiper-button-next,
 .swiper-button-prev {
-  @apply text-gray-600 hover:text-gray-800 transition-colors duration-300 !important;
+  color: rgb(75 85 99);
+  transition: color 300ms;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: rgb(31 41 55);
 }
 </style>

@@ -3,7 +3,7 @@
       
         <div class="absolute inset-0 w-full h-full">
             <video autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover">
-                <source src="/src/components/public/wideo.mp4" type="video/mp4" />
+                <source src="/wideo.mp4" type="video/mp4" />
                 
             </video>
         </div>

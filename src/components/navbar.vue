@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center py-6 border-b border-gray-800 px-6 md:px-20">
             <!-- Logo -->
             <div class="absolute left-6 md:left-20">
-                <img src="/src/components/public/tesla-motors.svg" alt="Tesla Logo" class="w-36 md:w-44" />
+                <img src="/tesla-motors.svg" alt="Tesla Logo" class="w-36 md:w-44" />
             </div>
 
 
@@ -39,55 +39,49 @@
     </nav>
 </template>
 
-<script>
-export default {
-    name: 'Navbar',
-    data() {
-        return {
-            mobileMenuOpen: false,
-        };
-    },
-    methods: {
-        toggleMobileMenu() {
-            this.mobileMenuOpen = !this.mobileMenuOpen;
-        },
-        handleLinkClick(targetId) {
-            this.mobileMenuOpen = false;
-            this.scrollToSection(targetId);
-        },
-        scrollToSection(targetId) {
-            const element = document.getElementById(targetId.replace('#', ''));
-            if (element) {
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                });
-            } else {
-                console.warn(`Element not found: ${targetId}`);
-            }
-        },
-        handleNavClick() {
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 
-        },
-    },
-    mounted() {
+const mobileMenuOpen = ref(false);
 
-        document.addEventListener('click', () => {
-            if (this.mobileMenuOpen) {
-                this.mobileMenuOpen = false;
-            }
-        });
+function toggleMobileMenu() {
+    mobileMenuOpen.value = !mobileMenuOpen.value;
+}
 
+function scrollToSection(targetId) {
+    const element = document.getElementById(targetId.replace('#', ''));
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
 
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = anchor.getAttribute('href');
-                this.handleLinkClick(targetId);
-            });
-        });
-    },
-};
+function handleLinkClick(targetId) {
+    mobileMenuOpen.value = false;
+    scrollToSection(targetId);
+}
+
+function handleDocumentClick() {
+    if (mobileMenuOpen.value) {
+        mobileMenuOpen.value = false;
+    }
+}
+
+function handleAnchorClick(e) {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href');
+    handleLinkClick(targetId);
+}
+
+onMounted(() => {
+    document.addEventListener('click', handleDocumentClick);
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', handleAnchorClick);
+    });
+});
+
+onUnmounted(() => {
+    document.removeEventListener('click', handleDocumentClick);
+});
 </script>
 
 <style scoped>
