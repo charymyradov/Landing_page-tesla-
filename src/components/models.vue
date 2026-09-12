@@ -14,7 +14,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div class="rounded-lg overflow-hidden shadow-lg">
           <img src="/silver-tesla-model-3.jpg" 
-               alt="Electric Vehicle in Nature"
+               alt="Silver Tesla Model 3 parked in a natural landscape"
                loading="lazy"
                class="w-full h-full object-cover" />
         </div>
@@ -84,7 +84,7 @@
 
         <div class="rounded-lg overflow-hidden shadow-lg">
           <img src="/model-y1.jpg" 
-               alt="Tesla Model X with Falcon Wing Doors Open"
+               alt="Tesla Model Y crossover SUV in white"
                loading="lazy"
                class="w-full h-full object-cover" />
         </div>
@@ -94,7 +94,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-20">
         <div class="rounded-lg overflow-hidden shadow-lg">
           <img src="/tesla1.png" 
-               alt="Electric Vehicle in Nature"
+               alt="Tesla Cybertruck angular design showcase"
                loading="lazy"
                class="w-full h-full object-cover" />
         </div>
