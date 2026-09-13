@@ -1,8 +1,11 @@
 <template>
-    <nav class="w-full z-50 text-right fixed transition-all duration-500"
-        :class="scrolled ? 'bg-black/95 shadow-lg' : 'bg-transparent'">
-        <div class="flex justify-between items-center py-6 border-b transition-colors duration-500"
-            :class="scrolled ? 'border-gray-800' : 'border-white/20'">
+    <nav class="w-full z-50 text-right fixed transition-transform duration-300 ease-in-out"
+        :class="[
+            inHero ? 'bg-transparent' : (showNavbar ? 'bg-black/95 shadow-lg' : 'bg-black/95'),
+            showNavbar ? 'translate-y-0' : '-translate-y-full'
+        ]">
+        <div class="flex justify-between items-center py-6 border-b transition-colors duration-300"
+            :class="inHero ? 'border-white/20' : 'border-gray-800'">
             <!-- Logo -->
             <div class="absolute left-6 md:left-20">
                 <img src="/tesla-motors.svg" alt="Tesla Logo" class="w-36 md:w-44" />
@@ -57,7 +60,11 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const mobileMenuOpen = ref(false);
-const scrolled = ref(false);
+const showNavbar = ref(true);
+const inHero = ref(true);
+
+let lastScrollY = 0;
+const SCROLL_THRESHOLD = 10;
 
 function toggleMobileMenu() {
     mobileMenuOpen.value = !mobileMenuOpen.value;
@@ -76,7 +83,32 @@ function handleLinkClick(targetId) {
 }
 
 function handleScroll() {
-    scrolled.value = window.scrollY > 50;
+    const currentScrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    // Hero section içinde mi?
+    inHero.value = currentScrollY < viewportHeight;
+
+    // Hero section içindeyse her zaman göster
+    if (inHero.value) {
+        showNavbar.value = true;
+        lastScrollY = currentScrollY;
+        return;
+    }
+
+    // Eşik kadar hareket yoksa hair tagme
+    if (Math.abs(currentScrollY - lastScrollY) < SCROLL_THRESHOLD) {
+        return;
+    }
+
+    // Aşağı kaydır → gizle, yukarı kaydır → göster
+    if (currentScrollY > lastScrollY) {
+        showNavbar.value = false;
+    } else {
+        showNavbar.value = true;
+    }
+
+    lastScrollY = currentScrollY;
 }
 
 function handleDocumentClick() {
